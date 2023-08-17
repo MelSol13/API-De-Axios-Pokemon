@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import FetchPoke from './components/FetchPoke';
+import ShowPoke from './components/ShowPoke';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [poke, setPoke] = useState([]);
+    console.log(`Desde app: ${poke}`);
+
+    return (
+        <>
+            <FetchPoke poke={poke} setPoke={setPoke} />
+            <ShowPoke poke={poke} />
+        </>
+    );
 }
 
 export default App;
